@@ -16,4 +16,9 @@ public class StudentServiceImpl implements StudentService {
         Student student = studentDao.findById(id);
         return student;
     }
+
+    @Override
+    public Student save(Student student) {
+        return studentDao.save(student);
+    }
 }
