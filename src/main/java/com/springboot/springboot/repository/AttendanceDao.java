@@ -13,6 +13,11 @@ public interface AttendanceDao extends JpaRepository<Attendance, Long> {
     @Query(value = "SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'attendance' AND column_name =:date", nativeQuery = true)
     Integer queryForDate(@Param("date") String date);
 
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO attendance (id, njuid,sname) VALUES (:id, :njuid, :sname)", nativeQuery = true)
+    void FirstSave(@Param("id") Long id, @Param("njuid") String njuid, @Param("sname") String sname);
+
 //    @Modifying
 //    @Transactional
 //    @Query(value = "UPDATE attendance SET :columnName =:state WHERE njuid =:id", nativeQuery = true)

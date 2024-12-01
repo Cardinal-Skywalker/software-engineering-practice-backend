@@ -28,12 +28,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     public void save(Student student, Attendance attendance) {
-        attendanceDao.save(attendance);
+        attendanceDao.FirstSave(attendance.getId(),attendance.getNjuid(),attendance.getSname());
+        //String sql = "INSERT INTO attendance VALUES()"
+
         studentDao.save(student);
         return;
     }
 
-    public void setAttendanceDao(AttendanceDao attendanceDao) {
-        this.attendanceDao = attendanceDao;
-    }
 }

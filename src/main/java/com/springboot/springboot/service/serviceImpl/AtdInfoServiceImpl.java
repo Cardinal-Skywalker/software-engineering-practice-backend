@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 public class AtdInfoServiceImpl implements AtdInfoService {
@@ -25,8 +26,13 @@ public class AtdInfoServiceImpl implements AtdInfoService {
 
         // 使用 query 方法执行查询并映射结果
         List<String> columnNames = jdbcTemplate.queryForList(sql, String.class);
-        // System.out.println(columnNames);
+        System.out.println(columnNames);
+        System.out.println(columnNames.size());
         // 定义SQL查询，使用参数占位符而不是字符串拼接
+
+        if(Objects.equals(columnNames.size(), 3)){
+            return null;
+        }
         String sqlfind = "SELECT * FROM attendance WHERE id = ?";
 
         // 执行查询，使用参数化的方式传递id值

@@ -19,6 +19,8 @@ public class Attendance {
         id = student.getId();
         njuid = student.getNjuid();
         sname = student.getSname();
+        date = "0";
+        state = "0";
     }
 
     public Attendance(String njuid, String date, String status) {

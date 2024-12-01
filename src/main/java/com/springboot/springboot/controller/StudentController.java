@@ -35,7 +35,7 @@ public class StudentController {
         List<Student> students = ExcelUtils.excelToStudent(file);
         for(Student stu:students){
             Attendance attendance = new Attendance(stu);
-            //System.out.println(stu);
+            System.out.println(stu);
             studentService.save(stu,attendance);
         }
         return Result.success("导入成功");
