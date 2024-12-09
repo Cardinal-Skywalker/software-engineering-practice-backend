@@ -1,6 +1,7 @@
 package com.springboot.springboot.controller;
 
 import com.springboot.springboot.domain.Attendance;
+import com.springboot.springboot.domain.Grade;
 import com.springboot.springboot.domain.Student;
 import com.springboot.springboot.service.StudentService;
 import com.springboot.springboot.utils.ExcelUtils;
@@ -35,8 +36,9 @@ public class StudentController {
         List<Student> students = ExcelUtils.excelToStudent(file);
         for(Student stu:students){
             Attendance attendance = new Attendance(stu);
-            System.out.println(stu);
-            studentService.save(stu,attendance);
+            Grade grade = new Grade(stu);
+            //System.out.println(stu);
+            studentService.save(stu,attendance,grade);
         }
         return Result.success("导入成功");
     }
