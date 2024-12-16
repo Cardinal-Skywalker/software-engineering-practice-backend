@@ -4,4 +4,5 @@ import com.springboot.springboot.domain.Grade;
 
 public interface GradeService {
     Grade displayGradeService(int id);
+    Grade saveByNjuid(Grade grade);
 }

@@ -17,8 +17,13 @@ public class Grade {
         this.id = (int) student.getId();
         this.njuid = student.getNjuid();
         this.sname = student.getSname();
-        this.middle = -1;
-        this.finall = -1;
+        this.middle = 0;
+        this.finall = 0;
+    }
+    public Grade(String njuid, String middle, String finall) {
+        this.njuid = njuid;
+        this.middle = Double.parseDouble(middle);
+        this.finall = Double.parseDouble(finall);
     }
     public Grade() {}
 

@@ -15,4 +15,13 @@ public class GradeServiceImpl implements GradeService {
     public Grade displayGradeService(int id){
         return gradeDao.findById(id);
     }
+    @Override
+    public Grade saveByNjuid(Grade grade){
+        Grade newgrade = gradeDao.findByNjuid(grade.getNjuid());
+        newgrade.setMiddle(grade.getMiddle());
+        newgrade.setFinall(grade.getFinall());
+        System.out.println(newgrade);
+        gradeDao.save(newgrade);
+        return newgrade;
+    }
 }
