@@ -32,10 +32,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     public void save(Student student, Attendance attendance, Grade grade) {
-        if(attendanceDao.count()==0){
+        if(attendanceDao.countByNjuid(attendance.getNjuid()) == 0) {
             attendanceDao.FirstSave(attendance.getId(),attendance.getNjuid(),attendance.getSname());
+        }else{
+            attendanceDao.UpdatebyNjuid(attendance.getId(),attendance.getNjuid(),attendance.getSname());
         }
-
+        //attendanceDao.FirstSave(attendance.getId(),attendance.getNjuid(),attendance.getSname());
         //String sql = "INSERT INTO attendance VALUES()"
         gradeDao.save(grade);
         studentDao.save(student);

@@ -40,6 +40,7 @@ public class StudentController {
             //System.out.println(stu);
             studentService.save(stu,attendance,grade);
         }
+        //System.out.println(Result.success("导入成功"));
         return Result.success("导入成功");
     }
 }
